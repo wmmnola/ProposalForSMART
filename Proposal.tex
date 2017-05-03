@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{hyperref}
 \title{Proposal for A SMART Scheduling System}
 \author{Wade Marshall }
 \date{May 2017}
@@ -24,12 +26,36 @@ The detraction is the start up cost. To migrate the current system will take con
 to run off of spreadsheets. 
 
 \section{Back-End Development}
+\subsection{General Overview}
 We will be developing the database using SQL. Most of the requests will be done using PHP, there is a possibility to use node.js as an alternative back end language, but PHP has specific advantages in that it can be embedded in web pages, versus running on a server. 
 
-In conjunction with PHP, mySQL will allow dynamic storage of the students and their clubs. We can make specific requests for students, which will
-allow easier schedules to be made for teachers, and for people 
-\section{Front End}
+In conjunction with PHP, mySQL will allow dynamic storage of the students and their clubs. We can make specific requests for students, which 
+will
+allow easier schedules to be made for teachers, and for people. Simple SQL requests will be made, in order to simplify the processing of the 
+queries. 
 
+PHP has been chosen because of it's nativity regarding SQL. Not only that, but it will integrate seamlessly with the javascript front end. In 
+order to produce a totally seamless back end. We need a simple algorithm to assign people to SMART clubs. Therefore we need an assignment algorithm. 
+
+Ideally the Stable Marriage Problem Algorithm(SMA)\footnote{The Stable Marriage Problem is a well defined problem in Mathematics, Computer 
+Science 
+and economics. Ultimately the goal is to assign one element of a set to an element of another set. The solution is ingenious, and the algorithm 
+has a completion time of $O(n^2)$. Please see Wikipedia for more information.} would be the optimal solution, as its efficent and elegant.
+However, we are aiming to minimize the role of teachers in the survey, and using the SMA would require the teachers to rank every student. 
+That might be a little too much to ask of teachers. 
+
+Therefore we must minimize teacher interaction 
+
+\subsection{Survey Sorting and Class Assignment}
+Not only will we need to read student's clubs, and grade level, but we will need to change them manually. This can be accomplished with the 
+insert command, and should be rather trivial to implement. The harder task will be the assignment of students at the start of the year based on 
+survey data. \emph{This is the main challenge of the whole project.}
+
+We will need a mechanism to input survey data\footnote{For more information on survey data, please refer to section 2}. This data should be 
+organized in a preference list. 
+\section{Front End}
+For the trial period, I plan to create a simple HTML and Javascript web page in order to suffice as a front-end. In order to minimize 
+confusion, I plan on only having one web page, which will be separated into sections based on queries and changes. 
 \section{Plans for the Future}
 
 \end{document}
