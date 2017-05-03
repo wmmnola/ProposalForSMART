@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{hyperref}
 \title{Proposal for A SMART Scheduling System}
 \author{Wade Marshall }
@@ -37,6 +39,15 @@ queries.
 PHP has been chosen because of it's nativity regarding SQL. Not only that, but it will integrate seamlessly with the javascript front end. In 
 order to produce a totally seamless back end. We need a simple algorithm to assign people to SMART clubs. Therefore we need an assignment algorithm. 
 
+
+\subsection{Survey Sorting and Class Assignment}
+Not only will we need to read student's clubs, and grade level, but we will need to change them manually. This can be accomplished with the 
+insert command, and should be rather trivial to implement. The harder task will be the assignment of students at the start of the year based on 
+survey data. \emph{This is the main challenge of the whole project.}
+
+We will need a mechanism to input survey data\footnote{For more information on survey data, please refer to section 3: The Front End}. This data should be 
+organized in a preference list. Then we can apply a sorting algorithm to the data to sort the students. 
+
 Ideally the Stable Marriage Problem Algorithm(SMA)\footnote{The Stable Marriage Problem is a well defined problem in Mathematics, Computer 
 Science 
 and economics. Ultimately the goal is to assign one element of a set to an element of another set. The solution is ingenious, and the algorithm 
@@ -44,18 +55,23 @@ has a completion time of $O(n^2)$. Please see Wikipedia for more information.} w
 However, we are aiming to minimize the role of teachers in the survey, and using the SMA would require the teachers to rank every student. 
 That might be a little too much to ask of teachers. 
 
-Therefore we must minimize teacher interaction, one way of doing this is to eliminate it completely. 
-
-\subsection{Survey Sorting and Class Assignment}
-Not only will we need to read student's clubs, and grade level, but we will need to change them manually. This can be accomplished with the 
-insert command, and should be rather trivial to implement. The harder task will be the assignment of students at the start of the year based on 
-survey data. \emph{This is the main challenge of the whole project.}
-
-We will need a mechanism to input survey data\footnote{For more information on survey data, please refer to section 2}. This data should be 
-organized in a preference list. 
+Therefore we must minimize teacher interaction, one way of doing this is to eliminate it completely. Therefore we must devise an algorithm that only looks at student preferences. 
 \section{Front End}
 For the trial period, I plan to create a simple HTML and Javascript web page in order to suffice as a front-end. In order to minimize 
 confusion, I plan on only having one web page, which will be separated into sections based on queries and changes. 
 \section{Plans for the Future}
+\section{Appendix}
+\subsection{Mathematical Definition of Our Sorting Algorithm. }
+Let $n = $the number of students
+
+Let $m = $the number of smart clubs
+
+Let $\varsigma = $ the set of students
+
+Let $\vartheta_n = $ the set of smart clubs ranked in order for the nth student.
+\begin{equation}x \in \varsigma_0 \end{equation}
+\begin{equation}
+\forall \varsigma_x: \varsigma_{capacity} > \varsigma_{members}
+\end{equation}
 
 \end{document}
