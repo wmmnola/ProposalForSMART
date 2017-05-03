@@ -69,9 +69,31 @@ Let $m = $the number of smart clubs
 Let $\varsigma = $ the set of students
 
 Let $\vartheta_n = $ the set of smart clubs ranked in order for the nth student.
+
+Let $ C_{capacity} $ be the capacity of a given smart club. 
+
+Let $ C_{members} $ be the number of members in a given club $C$.
+
+I will use the notation $\rightarrow$ to denote a student being assigned into a class. This will increase the $C_{members}$ of a given class 
+by 1.
+
+I will also being appropriating computer syntax for sets. So $A[n]$ is the n-th element of set A.  
+
 \begin{equation}x \in \varsigma_0 \end{equation}
 \begin{equation}
-\forall \varsigma_x: \varsigma_{capacity} > \varsigma_{members}
+\forall \vartheta_x: C_{capacity} > C_{members} 
+\end{equation}
+\begin{equation}
+x \rightarrow \vartheta_x[1]
+\end{equation}
+\begin{equation}
+\varsigma_2 = \varsigma_1
+\end{equation}
+\begin{equation}
+x \notin \varsigma_2
 \end{equation}
 
+\subsection{Run time of the Algorithm.}
+An important part of evaluating any algorithm is to put it into Big-O Notation. This gives us a rough estimate for the run time and class of 
+algorithm is. 
 \end{document}
