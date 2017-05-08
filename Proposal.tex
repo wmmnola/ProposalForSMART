@@ -51,20 +51,21 @@ organized in a preference list. Then we can apply a sorting algorithm to the dat
 Ideally the Stable Marriage Problem Algorithm(SMA)\footnote{The Stable Marriage Problem is a well defined problem in Mathematics, Computer 
 Science 
 and economics. Ultimately the goal is to assign one element of a set to an element of another set. The solution is ingenious, and the algorithm 
-has a completion time of $O(n^2)$. Please see Wikipedia for more information.} would be the optimal solution, as its efficent and elegant.
+has a completion time of $O(n^2)$. Please see Wikipedia for more information.} would be the optimal solution, as its efficient and elegant.
 However, we are aiming to minimize the role of teachers in the survey, and using the SMA would require the teachers to rank every student. 
 That might be a little too much to ask of teachers. 
 
 Therefore we must minimize teacher interaction, one way of doing this is to eliminate it completely. Therefore we must devise an algorithm that only looks at student preferences. 
+
+I have devised a simple algorithm to do just this. We will pick a random student from the list of students, then we will assign them to a SMART
+Club according to their listed preference, but to ensure that the class is not full. Then we will remove the student from the list of students to assign and then repeat\footnote{See Appendix subsection 1 for a mathematically rigorous definition of the algorithm}. The advantage of this algorithim is that it is just as efficient as the SMA\footnote{See Appendix subsection 2 for the classification of the algorithm}.
 \section{Front End}
 For the trial period, I plan to create a simple HTML and Javascript web page in order to suffice as a front-end. In order to minimize 
-confusion, I plan on only having one web page, which will be separated into sections based on queries and changes. 
-\section{Plans for the Future}
+confusion, I plan on only having one web page, which will be separated into sections based on queries and changes. Principally we need the 
+front end to do three things: list students and their smarts, change student's smarts, and bulk assign smarts. A simple system of queries and inserts should be able to accomplish the first two functions; however, the third function will need to be a combination of user input and back end. We will need to administer a survey at the start of the year, which will require students to rank each SMART club, then we will feed the data into the website, which will then run the algorithm described in the previous section. 
+
 \section{Appendix}
 \subsection{Mathematical Definition of Our Sorting Algorithm. }
-Let $n = $the number of students
-
-Let $m = $the number of smart clubs
 
 Let $\varsigma = $ the set of students
 
@@ -95,5 +96,16 @@ x \notin \varsigma_2
 
 \subsection{Run time of the Algorithm.}
 An important part of evaluating any algorithm is to put it into Big-O Notation. This gives us a rough estimate for the run time and class of 
-algorithm is. 
+the algorithm. Let $n = $the number of students. Let $m = $the number of smart clubs. The run time of the algorithm is given by the following equation 
+\begin{equation}
+T(n) = k_1n^2 + k_2mn
+\end{equation}
+Where $k_1$ and $k_2$ are arbitrary constants related to the completion time of the algorithm. We can now deduce, based on this equation, the 
+class of the algorithm. 
+
+As $n \to \infty$ and $m \to \infty$ the $n^2$ will grow at a rate of $2k_1n$, while $nm$ will grow at a constant rate of $k_2$. Therefore the
+$n^2$ term will grow to dominate $T(n)$
+\begin{equation}
+T(n) \in O(n^2)
+\end{equation}
 \end{document}
